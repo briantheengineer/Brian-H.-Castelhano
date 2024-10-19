@@ -1,16 +1,20 @@
 import React from "react";
-import BlogPosts from "./BlogPosts";
+import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
+import Navbar from "./Navbar"; // Ensure your Navbar component is imported correctly
+import MainSection from "./MainSection"; // Your main section component
+import BlogPost from "./BlogPost"; // Your full post component
 
 const App = () => {
   return (
-    <div className="container mx-auto">
-      <header>
-        <h1 className="text-4xl font-bold text-center">My Blog</h1>
-      </header>
-      <main>
-        <BlogPosts />
-      </main>
-    </div>
+    <Router>
+      <div className="container mx-auto">
+        <Navbar />
+        <Routes>
+          <Route path="/" element={<MainSection />} />
+          <Route path="/posts/:id" element={<BlogPost />} />
+        </Routes>
+      </div>
+    </Router>
   );
 };
 

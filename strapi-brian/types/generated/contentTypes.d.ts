@@ -6,6 +6,7 @@ export interface ApiPostPost extends Struct.CollectionTypeSchema {
     singularName: 'post';
     pluralName: 'posts';
     displayName: 'Post';
+    description: '';
   };
   options: {
     draftAndPublish: true;
@@ -13,6 +14,10 @@ export interface ApiPostPost extends Struct.CollectionTypeSchema {
   attributes: {
     Title: Schema.Attribute.String;
     Content: Schema.Attribute.Blocks;
+    Image: Schema.Attribute.Media<
+      'images' | 'files' | 'videos' | 'audios',
+      true
+    >;
     createdAt: Schema.Attribute.DateTime;
     updatedAt: Schema.Attribute.DateTime;
     publishedAt: Schema.Attribute.DateTime;
